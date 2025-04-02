@@ -1,0 +1,83 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    image: ImageMetadata;
+    hideHeaderImage?: boolean;
+    publishedAt: Date;
+    tags: string[];
+    readTime: number;
+  };
+}
+
+const formatter = new Intl.DateTimeFormat("en-IN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const { frontmatter } = Astro.props;
+const url = Astro.url;
+const backUrl = "/" + url.pathname.split("/")[1];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{frontmatter.title} - phpeterle</title>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+
+    <meta name="title" content={frontmatter.title + " - phpeterle"} />
+    <meta name="description" content={frontmatter.description} />
+  </head>
+  <body class="max-w-screen-md mx-auto px-4 lg:px-0">
+    <Nav />
+    <main>
+      <article class="pt-10 typography font-sans">
+        <div class="flex justify-between items-center">
+          <a
+            href={backUrl}
+            class="text-carbon-lighter font-mono hover:bg-yellow-400 hover:text-black transition-colors"
+          >
+            ← Back
+          </a>
+          <dl>
+            <dt class="sr-only">Date</dt>
+            <dd
+              class="whitespace-nowrap not-prose pl-0 leading-6 font-mono text-sm text-carbon-lighter uppercase"
+            >
+              <time datetime={frontmatter.publishedAt.toISOString()}>
+                {formatter.format(new Date(frontmatter.publishedAt))}
+              </time>
+            </dd>
+          </dl>
+        </div>
+        <h1 class="font-mono uppercase text-2xl text-carbon-lighter">
+          {frontmatter.title}
+        </h1>
+        {
+          !frontmatter.hideHeaderImage && (
+            <figure>
+              <img
+                src={frontmatter.image.src}
+                height={frontmatter.image.height}
+                width={frontmatter.image.width}
+                alt={frontmatter.title}
+                class="w-auto h-auto p-4"
+              />
+            </figure>
+          )
+        }
+        <section>
+          <slot />
+        </section>
+        <Footer />
+      </article>
+    </main>
+  </body>
+</html>

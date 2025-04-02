@@ -1,0 +1,86 @@
+---
+import { getCollection } from "astro:content";
+import WorkExperience from "../components/WorkExperience.astro";
+import Layout from "../layouts/Layout.astro";
+
+const workExperiencie = await getCollection("work").then((docs) => {
+  return docs.sort((a, b) => {
+    return new Date(b.data.from).valueOf() - new Date(a.data.from).valueOf();
+  });
+});
+---
+
+<Layout title="Resume" description="My Resume">
+  <main class="space-y-12 pt-4 md:pt-8 pb-8 relative">
+    <div class="flex justify-end">
+      <a
+        href="/resume.pdf"
+        download="Pedro-Peterle-Resume.pdf"
+        class="underline ml-auto bg-yellow-200">↓ Download PDF Version</a
+      >
+    </div>
+    <div class="col-span-2 px-1">
+      <div class="py-1 uppercase font-semibold text-2xl mb-8">
+        # Work Experience
+      </div>
+      <div class="grid grid-cols-4">
+        {
+          workExperiencie.map((experience) => (
+            <WorkExperience work={experience} />
+          ))
+        }
+      </div>
+      <div class="py-1 uppercase font-semibold text-2xl mb-8">
+        # Technologies, Languages, and Skills
+      </div>
+
+      <div class="grid grid-cols-4">
+        <span class="font-semibold col-span-4 md:col-span-1"
+          >Programming Languages:</span
+        >
+        <span class="col-span-4 md:col-span-3 pb-2">
+          TypeScript/JavaScript, Java, Dart, C#
+        </span>
+
+        <span class="font-semibold col-span-4 md:col-span-1"
+          >Databases & Storage:</span
+        >
+        <span class="col-span-4 md:col-span-3 pb-2">
+          PostgreSQL, MySQL, MongoDB, Redis
+        </span>
+
+        <span class="font-semibold col-span-4 md:col-span-1"
+          >Web & Framework:</span
+        >
+        <span class="col-span-4 md:col-span-3 pb-2">
+          React.js, Express.js, Nest.js, Next.js, Spring Boot,
+        </span>
+
+        <span class="font-semibold col-span-4 md:col-span-1"
+          >Cloud & DevOps:</span
+        >
+        <span class="col-span-4 md:col-span-3 pb-2">
+          Docker, AWS, Azure, CI/CD, Git
+        </span>
+
+        <span class="font-semibold col-span-4 md:col-span-1">Core Skills:</span>
+        <span class="col-span-4 md:col-span-3">
+          Data Structures & Algorithms, System Design, Linux/Bash, Design
+          Patterns
+        </span>
+      </div>
+      <div class="py-1 mt-20 uppercase font-semibold text-2xl mb-8">
+        # Education
+      </div>
+      <ul class="list-disc list-inside space-y-2">
+        <li>
+          <span class="float-right text-sm font-thin text-carbon/80 pt-1"
+            >2019-2025</span
+          >
+          Bachelor of Production Engineering <br /> Universidade Federal do Espírito
+          Santo (UFES), Vitória, Brazil.
+        </li>
+      </ul>
+    </div>
+  </main>
+</Layout>

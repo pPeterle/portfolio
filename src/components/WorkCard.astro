@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  post: CollectionEntry<"work">;
+}
+
+const formatter = new Intl.DateTimeFormat("en-IN", {
+  year: "numeric",
+  month: "short",
+});
+const post = Astro.props.post;
+---
+
+<div></div>
+<!-- <article class="relative">
+    <span
+        class="hidden absolute right-full mr-6 top-0 md:mr-12 w-[calc(0.5rem+1px)] h-[calc(0.5rem)] overflow-visible sm:block text-carbon-lighter"
+        >♦</span
+    >
+    <div class="flex-col justify-between">
+            <h3
+                class="text-lg tracking-tight text-carbon pt-8 lg:pt-0"
+            >
+                {post.data.title}
+            </h3>
+            <div class="mt-2 mb-4 prose text-carbon-light text-justify" set:html={post.data.description} />
+    </div>
+    <div class="flex gap-2">
+        {post.data.tags.map(tag => <p class="bg-low-gold whitespace-nowrap py-1 px-5 text-sm">{tag}</p>)}
+    </div>
+    <dl
+        class="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]"
+    >
+        <dt class="sr-only">Date</dt>
+        <dd class="whitespace-nowrap text-xs leading-6 text-carbon-lighter">
+            <time datetime={post.data.from.toISOString()}>
+                {formatter.format(new Date(post.data.from))}
+            </time> ->
+            <time datetime={post.data.to?.toISOString()}>
+                {post.data.to ? formatter.format(new Date(post.data.to!)) : '(Current)'}
+            </time>
+        </dd>
+    </dl>
+</article> -->

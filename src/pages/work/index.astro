@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import WorkCard from "../../components/WorkCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const docs = await getCollection("work").then((docs) => {
+  return docs.sort((a, b) => {
+    return new Date(b.data.from).valueOf() - new Date(a.data.from).valueOf();
+  });
+});
+---
+
+<Layout
+  title="Work"
+  description="My Personal work and documents related to it."
+>
+  <main class="pt-8 pb-4 grid gap-y-4">
+    <fieldset class="bg-white text-sm px-2 py-1 my-4">
+      <legend class="ml-auto px-2 bg-carbon-lightest text-white">Note </legend>
+      I’ve always been passionate about solving problems—whether it’s optimizing
+      a system, streamlining a workflow, or building something from the ground up.
+      <br />
+      <br />
+      Programming gives me the tools to turn ideas into reality, and I love exploring
+      the endless possibilities that different languages and technologies offer.
+      <br />
+      <br />
+      From designing seamless user experiences to architecting powerful back-end
+      systems, I thrive on creating efficient, scalable solutions that make an impact.
+    </fieldset>
+    <div class="relative mt-12 ml-0 lg:ml-[200px]">
+      <div
+        class="hidden absolute top-3 bottom-0 right-full mr-7 md:mr-[3.25rem] w-px bg-carbon-lighter sm:block"
+      >
+      </div>
+      <div class="space-y-16">
+        {docs.map((post) => <WorkCard post={post} />)}
+      </div>
+    </div>
+  </main>
+</Layout>

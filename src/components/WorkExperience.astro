@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  work: CollectionEntry<"work">;
+}
+
+const work = Astro.props.work;
+---
+
+<span class="font-bold col-span-4 text-lg">{work.data.role}</span>
+<span class="font-bold col-span-2"
+  >{work.data.company}
+  <span class="font-normal text-sm text-carbon hidden"
+    >({work.data.locale})</span
+  ></span
+>
+<span
+  class="font-bold text-end text-sm text-carbon/80 col-span-2 content-center whitespace-nowrap"
+  >{work.data.period}</span
+>
+<ul class="pt-4 col-span-4 list-disc list-inside space-y-2">
+  {work.data.description.map((item) => <li>{item}</li>)}
+</ul>
+<div class="flex gap-2 mt-6 mb-20 col-span-4 flex-wrap">
+  {
+    work.data.tags.map((tag) => (
+      <p class="bg-low-gold whitespace-nowrap py-1 px-5 text-sm">{tag}</p>
+    ))
+  }
+</div>

@@ -1,0 +1,48 @@
+---
+import "@fontsource/ibm-plex-mono";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const props = Astro.props;
+const url = Astro.url;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{props.title} - phpeterle</title>
+    <!-- Favicon -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon.png"
+      sizes="32x32"
+    />
+
+    <meta name="title" content={props.title + " - phpeterle"} />
+    <meta name="description" content={props.description} />
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Peterle Pedro's Blog"
+      href={`${Astro.site}rss.xml`}
+    />
+  </head>
+  <body
+    class="px-4 lg:px-0 max-w-screen-md mx-auto font-mono text-carbon bg-enamel"
+  >
+    <Nav />
+    <slot />
+    <Footer />
+  </body>
+</html>

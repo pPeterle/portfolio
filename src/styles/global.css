@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@font-face {
+  font-family: "Departure Neon";
+  /* src: url("/fonts/MonaspaceNeon-Regular.woff") format('woff'); */
+  src: url("/fonts/DepartureMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono: Departure Neon, IBM Plex Mono, Source Code Pro, Consolas, Menlo,
+    monospace;
+  --font-sans: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --font-inter: Inter, sans-serif;
+
+  --color-enamel: #eeeeee;
+  --color-enamel-dark: #cccccc;
+  --color-carbon: #222222;
+  --color-carbon-light: #444444;
+  --color-carbon-lighter: #666666;
+  --color-carbon-lightest: #999999;
+  --color-foam: #bccabb;
+  --color-beige: #d9c9b6;
+
+  --color-gold: oklch(0.852 0.199 91.936);
+  --color-low-gold: oklch(0.945 0.129 101.54);
+
+  --color-black: #000;
+  --color-white: #fff;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  @apply bg-gray-300;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  @apply bg-gray-300;
+}
+
+::selection {
+  @apply bg-gold text-black;
+}
+
+a:hover {
+  @apply bg-gold transition-colors;
+}
+
+table {
+  @apply w-full mt-4;
+}
+
+table th {
+  @apply border-b-2 border-carbon py-2 border-r-2;
+}
+
+table th:last-child {
+  @apply border-r-0;
+}
+
+table td {
+  @apply border-b-2 border-carbon p-2;
+}
+
+table td img {
+  @apply w-full h-auto;
+}
+
+table td:first-child {
+  @apply border-r-2 border-carbon;
+}
+
+body {
+  @apply font-mono text-carbon bg-enamel;
+  height: 100vh;
+  z-index: -1;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #333333;
+}
+
+body {
+  @apply font-mono bg-enamel text-carbon;
+  font-display: swap;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  @apply bg-gray-500;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
+  @apply bg-gray-300;
+}
+
+::selection {
+  @apply bg-yellow-400;
+}
+
+.typography {
+  @apply font-inter;
+  font-display: swap;
+}
+
+.typography h1 {
+  @apply text-xl font-bold mt-6 mb-2;
+}
+
+.typography p {
+  @apply mb-3 text-black;
+}
+
+.typography a {
+  @apply underline hover:bg-yellow-400;
+}
+
+.typography img {
+  @apply w-full h-auto my-4;
+}
+k .typography pre {
+  @apply p-2 my-4 text-black;
+}
+
+.typography ul {
+  @apply list-disc my-4 pl-8;
+}
+
+.typography ol {
+  @apply list-decimal my-4 pl-12;
+}
+
+.typography li {
+  @apply my-2;
+}
+
+.typography li::marker {
+  @apply text-carbon-lighter font-mono;
+}
+
+.typography blockquote {
+  @apply bg-enamel-dark p-2 my-4 text-black;
+}
+
+.typography table {
+  @apply w-full my-4;
+}
+
+.typography table th {
+  @apply border-b-2 border-carbon py-2 border-r-2;
+}
+
+.typography table td {
+  @apply border-b-2 border-carbon border-r-2 p-2;
+}
+
+.typography table th:last-child,
+.typography table td:last-child {
+  @apply border-r-0;
+}
+
+.typography table td img {
+  @apply w-full h-auto;
+}
