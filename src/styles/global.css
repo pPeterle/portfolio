@@ -135,10 +135,19 @@ body {
 .typography {
   @apply font-inter;
   font-display: swap;
+  font-size: 1.1rem;
 }
 
 .typography h1 {
-  @apply text-xl font-bold mt-6 mb-2;
+  @apply text-3xl font-bold mt-6 mb-4;
+}
+
+.typography h2 {
+  @apply text-3xl font-bold mt-6 mb-4;
+}
+
+.typography h3 {
+  @apply text-2xl font-bold mt-6 mb-2;
 }
 
 .typography p {
@@ -152,7 +161,7 @@ body {
 .typography img {
   @apply w-full h-auto my-4;
 }
-k .typography pre {
+.typography pre {
   @apply p-2 my-4 text-black;
 }
 
@@ -195,4 +204,8 @@ k .typography pre {
 
 .typography table td img {
   @apply w-full h-auto;
+}
+
+hr {
+  color: #ccc;
 }

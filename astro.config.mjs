@@ -10,6 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: "https://www.phpeterle.com/",
 
   adapter: vercel(),
   markdown: {
