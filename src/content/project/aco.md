@@ -4,5 +4,5 @@ description: "Developed an optimization system using Ant Colony Optimization (AC
 date: 2025-03-03
 image: "../../assets/aco.png"
 languages: ["pt-BR"]
-link: "https://www.youtube.com/watch?v=KJNbWNlL_Fc&t=1s&ab_channel=FlutterandoTV"
+link: "https://github.com/pPeterle/ACO"
 ---
