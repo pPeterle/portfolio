@@ -11,7 +11,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://www.phpeterle.com/",
-
+  prefetch: true,
   adapter: vercel(),
   markdown: {
     shikiConfig: {

@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  project: CollectionEntry<"project">;
+}
+
+const formatter = new Intl.DateTimeFormat("en-IN", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+const project = Astro.props.project;
+---
+
+<article class="flex flex-col w-full border-t-2 border-dashed py-3">
+  <a href={project.data.link} target="_blank">
+    <h3 class="text-lg tracking-tight text-carbon pt-4">
+      ## {project.data.title}
+    </h3>
+    <p class="mt-2 mb-4 text-sm prose text-carbon-light">
+      {project.data.description}
+    </p>
+    <div class="flex gap-2">
+      {
+        project.data.languages.map((language) => (
+          <div class="border px-2">{language}</div>
+        ))
+      }
+    </div>
+    <fotter class="flex gap-2 justify-between">
+      <dl>
+        <dt class="sr-only">Date</dt>
+        <dd class="whitespace-nowrap text-xs leading-6 text-carbon-lighter">
+          <time datetime={project.data.date.toISOString()}>
+            {formatter.format(new Date(project.data.date))}
+          </time>
+        </dd>
+      </dl>
+      <p class="text-sm text-carbon-lighter">More details ↳</p>
+    </fotter>
+  </a>
+</article>

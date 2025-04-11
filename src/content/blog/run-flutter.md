@@ -6,8 +6,6 @@ publishedAt: 2020-05-30
 tags: ["javascript", "typescript", "learn typescript"]
 ---
 
-## Different types to run a app run in Flutter
-
 ### Default
 
 In Flutter, when we are developing our application, we run it using the command:

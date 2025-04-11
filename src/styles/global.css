@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -6,6 +5,14 @@
   font-family: "Departure Neon";
   /* src: url("/fonts/MonaspaceNeon-Regular.woff") format('woff'); */
   src: url("/fonts/DepartureMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter.ttf");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

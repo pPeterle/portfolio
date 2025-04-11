@@ -1,58 +1,35 @@
 ---
-import { Image } from "astro:assets";
+import Image from "astro/components/Image.astro";
 import myImage from "../assets/socrates.jpg";
+import Paper from "../components/Paper.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 ---
 
-<Layout title="Profile" description="Peterle Pedro's Homepage on the internet">
-  <main class="space-y-12 pt-8 md:pt-12 pb-8 relative">
-    <div class="col-span-2 bg-white relative">
-      <div
-        class="px-3 md:px-4 justify-around absolute space-y-[7.38rem] md:space-y-[9.12rem] -top-3 bottom-0 z-10"
-      >
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full md:block"></div>
-      </div>
-      <div
-        class="mx-12 md:mx-14 px-4 py-12 border-x border-enamel text-carbon leading-6 md:leading-6 text-xs md:text-sm"
-      >
-        ## Profile: Software Engineer<br /><br class="" />
-        ## Skills: <br />
-        Engineering and programming working together to solve complex problems efficiently<br
-        /><br />
-        ## Resume:
-        <a href="/resume" class="p-1">Open ↳</a>
+<Layout title="Profile" description="Peterle Pedro's Profile">
+  <Paper title="About me">
+    <p class="mt-4">## Profile: Software Engineer</p>
+    <p class="mt-4">## Skills:</p>
+    <p>
+      Engineering and programming working together to solve complex problems
+      efficiently
+    </p>
+    <p class="mt-4">## Resume: <a href="/resume" class="p-1">Open ↳</a></p>
 
-        <br /><br />
-        ## Interests: <br />
-        "And what is it but ignorance, the most reprehensible of all, believing one
-        knows what one does not know?"
-        <figure>
-          <Image
-            class="mt-4 grayscale contrast-200 border"
-            alt="The Death of Socrates"
-            src={myImage}
-            title="The Death of Socrates."
-          />
-          <figcaption class="text-center">
-            Fig 1: The Death of Socrates
-          </figcaption>
-        </figure>
-      </div>
-      <div
-        class="px-3 md:px-4 justify-around absolute space-y-[7.38rem] md:space-y-[9.12rem] -top-3 bottom-0 right-0 z-10"
-      >
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full"></div>
-        <div class="h-6 w-6 bg-enamel rounded-full md:block"></div>
-      </div>
-    </div>
-    <div class="h-min-[80px]"></div>
-  </main>
+    <p class="mt-4">## Interests:</p>
+    <p>
+      "And what is it but ignorance, the most reprehensible of all, believing
+      one knows what one does not know?"
+    </p>
+
+    <figure>
+      <Image
+        class="mt-4 grayscale contrast-200 border"
+        alt="The Death of Socrates"
+        src={myImage}
+        title="The Death of Socrates."
+      />
+      <figcaption class="text-center">Fig 1: The Death of Socrates</figcaption>
+    </figure>
+  </Paper>
 </Layout>
