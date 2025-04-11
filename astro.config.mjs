@@ -1,9 +1,8 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
+import vercelStatic from "@astrojs/vercel/static";
 import tailwindcss from "@tailwindcss/vite";
-
-import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +11,12 @@ export default defineConfig({
   },
   site: "https://www.phpeterle.com/",
   prefetch: true,
-  adapter: vercel(),
+  output: "static",
+  adapter: vercelStatic({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
