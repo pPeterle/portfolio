@@ -8,7 +8,7 @@ description:
   ]
 
 from: 2023-10-05
-tags: ["TS", "JS", "React", "NodeJS", "Express", "Java"]
+tags: ["TS", "JS", "React", "NestJS", "NodeJS", "NestJS", "Java"]
 period: "Oct 2023 - Nov 2024"
 role: "Full Stack Engineer"
 company: "Digisystem"
